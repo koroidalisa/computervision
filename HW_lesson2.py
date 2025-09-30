@@ -10,7 +10,6 @@ image= cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 image = cv2.Canny(image, 150, 150)
 
-cv2.imshow("me", image)
 
 image2 = cv2.imread("images/imagehw2902_2.jpg")
 print(image2.shape)
@@ -21,10 +20,12 @@ image2= cv2.cvtColor(image2, cv2.COLOR_BGR2GRAY)
 
 image2 = cv2.Canny(image2, 300, 300)
 
-cv2.imshow("me", image2)
+cv2.imshow("me", image)
+cv2.imshow("email", image2)
 
 
 
 cv2.waitKey(0)
 
 cv2.destroyAllWindows()
+
