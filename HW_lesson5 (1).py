@@ -51,11 +51,12 @@ for cnt in contours:
 
 
 
-
+cv2.imwrite("result.jpg", img_copy)
 cv2.imshow('img', img)
 cv2.imshow('mask', img_copy)
 
 
 
 cv2.waitKey(0)
+
 cv2.destroyAllWindows()
