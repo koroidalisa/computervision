@@ -19,7 +19,7 @@ model = keras.Sequential([layers.Dense(8, activation = 'relu', input_shape = (3,
                           layers.Dense(8, activation = 'softmax')])
 
 #навчення моделі, створення графіку
-model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+model.compile(optimizer = 'adam', loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'])
 history = model.fit(X, y, epochs = 200, verbose = 0)
 plt.plot(history.history['loss'], label = 'Втрата (Loss)')
 plt.plot(history.history['accuracy'], label = 'Точність (Accuracy)')
@@ -35,6 +35,7 @@ test = np.array([18, 16, 0])
 pred = model.predict(test)
 print(f'Імовірність по кожному класу: {pred}')
 print(f'Модель визначила: {encoder.inverse_transform([np.argmax(pred)])}')
+
 
 
 
