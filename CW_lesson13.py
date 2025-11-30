@@ -4,8 +4,8 @@ from tensorflow.keras import layers, models
 import numpy as np
 from tensorflow.keras.preprocessing import image
 
-train_ds = tf.keras.preprocessing.image_dataset_from_directory('data/train1', image_size=(128, 128), batch_size=30, label_mode='categorical')
-test_ds = tf.keras.preprocessing.image_dataset_from_directory('data/test1', image_size=(128, 128), batch_size=30, label_mode='categorical')
+train_ds = tf.keras.preprocessing.image_dataset_from_directory('data/test', image_size=(128, 128), batch_size=30, label_mode='categorical')
+test_ds = tf.keras.preprocessing.image_dataset_from_directory('data/train', image_size=(128, 128), batch_size=30, label_mode='categorical')
 #нормалізація зображень
 normalization_layer = layers.Rescaling(1./255)
 
@@ -47,5 +47,6 @@ pred = model.predict(img_array)
 
 pred_index = np.argmax(pred[0])
 print(f'імовірність по класам: {pred[0]}')
+
 
 print(f'модель визначила: {class_name[pred_index]}')
